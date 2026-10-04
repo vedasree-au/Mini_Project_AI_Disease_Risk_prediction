@@ -1,0 +1,11 @@
+backend/venv/
+backend/.env
+backend/__pycache__/
+backend/reports/*.pdf
+*.pyc
+.env
+__pycache__/
+*.pyc
+.venv/
+venv/
+.vscode/

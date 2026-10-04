@@ -1,0 +1,6 @@
+CREATE DATABASE IF NOT EXISTS ai_health_dashboard CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE ai_health_dashboard;
+
+CREATE TABLE IF NOT EXISTS users (id INT AUTO_INCREMENT PRIMARY KEY, username VARCHAR(50) NOT NULL UNIQUE, email VARCHAR(120) NOT NULL UNIQUE, password_hash TEXT NOT NULL, full_name VARCHAR(100) DEFAULT '', phone VARCHAR(30) DEFAULT '', created_at DATETIME NOT NULL) ENGINE=InnoDB;
+CREATE TABLE IF NOT EXISTS predictions (id INT AUTO_INCREMENT PRIMARY KEY, user_id INT NOT NULL, prediction_type VARCHAR(50) NOT NULL, prediction VARCHAR(120) NOT NULL, risk_percentage DECIMAL(6,2) NULL, inputs_json LONGTEXT NOT NULL, recommendations_json LONGTEXT NOT NULL, explanation TEXT, created_at DATETIME NOT NULL, FOREIGN KEY(user_id) REFERENCES users(id) ON DELETE CASCADE, INDEX idx_predictions_user(user_id)) ENGINE=InnoDB;
+CREATE TABLE IF NOT EXISTS reports (id INT AUTO_INCREMENT PRIMARY KEY, user_id INT NOT NULL, prediction_id INT NOT NULL, file_name VARCHAR(255) NOT NULL, file_path TEXT NOT NULL, downloads INT NOT NULL DEFAULT 0, created_at DATETIME NOT NULL, FOREIGN KEY(user_id) REFERENCES users(id) ON DELETE CASCADE, FOREIGN KEY(prediction_id) REFERENCES predictions(id) ON DELETE CASCADE, INDEX idx_reports_user(user_id)) ENGINE=InnoDB;
