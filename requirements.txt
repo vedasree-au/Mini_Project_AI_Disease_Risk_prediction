@@ -10,3 +10,4 @@ pydantic
 reportlab
 openpyxl
 matplotlib
+python-dotenv
