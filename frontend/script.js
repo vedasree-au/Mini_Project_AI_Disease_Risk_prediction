@@ -1,4 +1,4 @@
-const API_BASE=localStorage.getItem("apiBaseUrl")||"http://127.0.0.1:8000";
+const API_BASE=localStorage.getItem("apiBaseUrl")||"https://mini-project-ai-disease-risk-prediction.onrender.com";
 const token=()=>localStorage.getItem("authToken");
 const authHeaders=()=>({"Content-Type":"application/json","Authorization":`Bearer ${token()}`});
 function initDashboard(){if(!token()){location.href="login.html";return;} applyTheme(); loadProfile(); loadHistory(); loadReports(); setupNav();}
