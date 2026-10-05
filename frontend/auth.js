@@ -1,4 +1,4 @@
-const API_BASE = localStorage.getItem("apiBaseUrl") || "http://127.0.0.1:8000";
+const API_BASE = localStorage.getItem("apiBaseUrl") || "https://mini-project-ai-disease-risk-prediction.onrender.com";
 function authMessage(id,text,type="error"){const el=document.getElementById(id);el.className=`auth-message ${type}`;el.textContent=text;el.style.display="block";}
 async function registerUser(){
  const payload={username:document.getElementById("register-username").value.trim(),full_name:document.getElementById("register-fullname").value.trim(),email:document.getElementById("register-email").value.trim(),phone:document.getElementById("register-phone").value.trim(),password:document.getElementById("register-password").value};
