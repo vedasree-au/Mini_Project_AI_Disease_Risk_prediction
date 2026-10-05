@@ -8,3 +8,5 @@ joblib==1.5.3
 pydantic==2.13.4
 reportlab>=4.2,<5
 mysql-connector-python==9.4.0
+python-dotenv
+
